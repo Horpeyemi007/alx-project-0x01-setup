@@ -1,9 +1,16 @@
 import PostCard from "@/components/common/PostCard";
+import PostModal from "@/components/common/PostModal";
 import Header from "@/components/layout/Header";
-import { PostProps } from "@/interfaces";
-import React from "react";
+import { PostData, PostProps } from "@/interfaces";
+import React, { useState } from "react";
 
 const Posts: React.FC<PostProps[]> = ({ posts }) => {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [post, setPost] = useState<PostData | null>(null);
+
+  const handleAddPost = (newPost: PostData) => {
+    setPost({ ...newPost, id: posts.length + 1 });
+  };
   return (
     <div className="flex flex-col h-screen">
       <Header />
@@ -11,6 +18,7 @@ const Posts: React.FC<PostProps[]> = ({ posts }) => {
         <div className="flex justify-between">
           <h1 className="text-2xl font-semibold">Post Content</h1>
           <button
+            onClick={() => setModalOpen(true)}
             type="button"
             className="bg-blue-700 px-4 rounded-full text-white"
           >
@@ -29,6 +37,12 @@ const Posts: React.FC<PostProps[]> = ({ posts }) => {
           ))}
         </div>
       </main>
+      {isModalOpen && (
+        <PostModal
+          onClose={() => setModalOpen(false)}
+          onSubmit={handleAddPost}
+        />
+      )}
     </div>
   );
 };
