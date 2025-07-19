@@ -12,8 +12,8 @@ interface Geo {
 }
 
 interface Company {
-  name: string;
-  catchPhrase: string;
+  name?: string;
+  catchPhrase?: string;
   bs?: string;
 }
 
@@ -45,4 +45,16 @@ export interface PostData {
 export interface PostModalProps {
   onClose: () => void;
   onSubmit: (post: PostData) => void;
+}
+
+export interface UserData {
+  name: string;
+  id?: number;
+  username: string;
+  email: string;
+}
+
+export interface UserModalProps {
+  onClose: () => void;
+  onSubmit: (user: UserData) => void;
 }
