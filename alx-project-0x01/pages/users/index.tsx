@@ -8,7 +8,7 @@ const Users: React.FC<UserProps[]> = ({ posts }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [user, setUser] = useState<UserData | null>(null);
 
-  const handleAddUser = (newUser: UserData) => {
+  const handleAddUser = (newUser: UserProps) => {
     setUser({ ...newUser, id: posts.length + 1 });
   };
   console.log("User is: ", user);

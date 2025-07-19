@@ -6,6 +6,9 @@ const UserModal: React.FC<UserModalProps> = ({ onClose, onSubmit }) => {
     name: "",
     username: "",
     email: "",
+    company: {
+      name: "",
+    },
   });
 
   const handleChange = (
