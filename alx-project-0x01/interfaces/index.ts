@@ -13,7 +13,7 @@ interface Geo {
 
 interface Company {
   name: string;
-  catchPhrase?: string;
+  catchPhrase: string;
   bs?: string;
 }
 
