@@ -10,6 +10,7 @@ const Posts: React.FC<PostProps[]> = ({ posts }) => {
   const [post, setPost] = useState<PostData | null>(null);
 
   const handleAddPost = (newPost: PostData) => {
+    console.log("newPost is: ", post);
     setPost({ ...newPost, id: posts.length + 1 });
   };
   return (

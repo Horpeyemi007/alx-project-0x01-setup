@@ -17,8 +17,8 @@ const PostModal: React.FC<PostModalProps> = ({ onClose, onSubmit }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(post);
     onClose();
+    onSubmit(post);
   };
 
   return (
@@ -66,12 +66,12 @@ const PostModal: React.FC<PostModalProps> = ({ onClose, onSubmit }) => {
             >
               Body
             </label>
-            <input
-              type="text"
+            <textarea
               id="body"
               name="body"
               value={post.body}
               onChange={handleChange}
+              rows={4}
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Enter post content"
             />
